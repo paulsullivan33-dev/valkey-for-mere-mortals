@@ -1,0 +1,25 @@
+== Strings: a community noticeboard's counters and a notice ==
+$ SET notice:current "Board games night moves to Friday this week"
+OK
+$ GET notice:current
+Board games night moves to Friday this week
+$ INCR notice:views
+1
+$ INCR notice:views
+2
+$ INCRBY notice:views 10
+12
+$ GET notice:views
+12
+$ SET notice:current "... (edited)" then GET — last write wins
+Board games night is on Friday, hall B
+$ MSET club:name "Riverside Board Game Club" club:room "Hall B"
+OK
+$ MGET club:name club:room
+Riverside Board Game Club
+Hall B
+$ TYPE notice:views / STRLEN notice:current / EXISTS / DEL
+string
+38
+1
+0

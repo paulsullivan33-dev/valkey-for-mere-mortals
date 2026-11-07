@@ -1,0 +1,9 @@
+== Lists: a noticeboard queue, newest pushed left, worked from the right ==
+$ LPUSH queue:notices n1 n2 n3 ; LRANGE 0 -1 ; RPOP ; LLEN
+book friday hall
+order score pads
+fix the hall light
+fix the hall light
+2
+book friday hall
+order score pads

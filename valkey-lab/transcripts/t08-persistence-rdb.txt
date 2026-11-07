@@ -1,0 +1,37 @@
+== RDB persistence: snapshot, stop without saving, restart, data must survive ==
+Keys before: 10
+$ BGSAVE
+Background saving started
+$ LASTSAVE
+1794088690
+total 4.0K
+-rw-rw---- 1 root root 631 Nov  7 21:58 dump.rdb
+$ SHUTDOWN NOSAVE at 21:58:11.830 (server must NOT write a fresh snapshot on exit)
+Server process alive? no
+Restarted from the same config and data-rdb folder at 21:58:13.047.
+$ DBSIZE after restart
+10
+$ GET notice:current
+Board games night is on Friday, hall B
+$ GET notice:views
+14
+$ HGETALL member:ada
+name
+Ada
+games_owned
+43
+favourite
+chess
+$ ZREVRANGE leaderboard 0 -1 WITHSCORES
+Cleo
+140
+Ben
+125
+Ada
+120
+Dan
+95
+$ GET notice:flash (had a 3s TTL, long past — must still be gone)
+
+0
+$ SHUTDOWN NOSAVE (clean-up)

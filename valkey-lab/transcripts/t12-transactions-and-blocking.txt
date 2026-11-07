@@ -1,0 +1,21 @@
+== Transactions and atomic counters ==
+$ MULTI / INCR notice:views / INCR notice:views / EXEC (via a pipe)
+OK
+QUEUED
+QUEUED
+13
+14
+$ GET notice:views
+14
+== A slow command blocks everyone: a long Lua loop, timed ==
+Starting a long EVAL in the background at 21:58:07.798, then timing a PING.
+PING issued at 21:58:08.306 while the loop is running:
+PONG
+PING round trip while blocked: 2.48 seconds
+EVAL result and its wall time:
+80000000067108896
+
+real	0m2.984s
+user	0m0.001s
+sys	0m0.002s
+PING round trip after it finished: 0.003 seconds

@@ -1,0 +1,28 @@
+== Sets: who is coming on Friday (no duplicates, no order) ==
+$ SADD friday:players Ada Ben Ada Cleo ; SMEMBERS ; SISMEMBER ; SCARD
+3
+Ada
+Ben
+Cleo
+1
+0
+3
+$ SADD friday:bringing Ada Ben ; SINTER friday:players friday:bringing
+Ada
+Ben
+== Sorted sets: the club leaderboard, members scored ==
+$ ZADD leaderboard 120 Ada 95 Ben 140 Cleo 95 Dan
+4
+$ ZREVRANGE leaderboard 0 -1 WITHSCORES (highest first)
+Cleo
+140
+Ada
+120
+Dan
+95
+Ben
+95
+$ ZINCRBY leaderboard 30 Ben ; ZRANK / ZREVRANK Cleo
+125
+0
+125

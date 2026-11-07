@@ -1,0 +1,29 @@
+Eviction server on 19081: maxmemory 2mb, maxmemory-policy allkeys-lru.
+$ CONFIG GET maxmemory*
+maxmemory
+2097152
+maxmemory-clients
+0
+maxmemory-eviction-tenacity
+10
+maxmemory-policy
+allkeys-lru
+maxmemory-samples
+5
+Writing 3000 keys of about 1000 bytes each (about 3 MB of values,
+plus per-key overhead) through a pipe:
+All data transferred. Waiting for the last reply...
+Last reply received from server.
+errors: 0, replies: 3000
+$ DBSIZE after the writes
+1256
+$ INFO stats: evicted_keys
+expired_keys:0
+expired_keys_with_volatile_items_stale_perc:0.00
+evicted_keys:1767
+$ INFO memory: used / max
+used_memory_human:2.00M
+maxmemory_human:2.00M
+(DBSIZE below 3000 plus evicted_keys above 0 means the limit bit and
+ the server threw older keys away to stay inside 2 MB.)
+$ SHUTDOWN NOSAVE

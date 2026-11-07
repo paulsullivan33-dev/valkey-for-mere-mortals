@@ -1,0 +1,39 @@
+173905:M 07 Nov 2026 21:58:15.533 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+173905:M 07 Nov 2026 21:58:15.533 * oO0OoO0OoO0Oo Valkey is starting oO0OoO0OoO0Oo
+173905:M 07 Nov 2026 21:58:15.533 * Valkey version=9.1.3, bits=64, commit=00000000, modified=1, pid=173905, just started
+173905:M 07 Nov 2026 21:58:15.533 * Configuration loaded
+173905:M 07 Nov 2026 21:58:15.534 # You requested maxclients of 10000 requiring at least 10032 max file descriptors.
+173905:M 07 Nov 2026 21:58:15.534 # Server can't set maximum open files to 10032 because of OS error: Operation not permitted.
+173905:M 07 Nov 2026 21:58:15.534 # Current maximum open files is 4096. maxclients has been reduced to 4064 to compensate for low ulimit. If you need higher maxclients increase 'ulimit -n'.
+173905:M 07 Nov 2026 21:58:15.564 * monotonic clock: X86 TSC @ 1497.83 ticks/us
+173905:M 07 Nov 2026 21:58:15.564 * Running mode=standalone, port=18080.
+173905:M 07 Nov 2026 21:58:15.565 * Static Module 'lua' successfully loaded
+173905:M 07 Nov 2026 21:58:15.565 * Server initialized
+173905:M 07 Nov 2026 21:58:15.565 * Ready to accept connections tcp
+173923:M 07 Nov 2026 21:58:15.750 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+173923:M 07 Nov 2026 21:58:15.750 * oO0OoO0OoO0Oo Valkey is starting oO0OoO0OoO0Oo
+173923:M 07 Nov 2026 21:58:15.750 * Valkey version=9.1.3, bits=64, commit=00000000, modified=1, pid=173923, just started
+173923:M 07 Nov 2026 21:58:15.750 * Configuration loaded
+173923:M 07 Nov 2026 21:58:15.750 # You requested maxclients of 10000 requiring at least 10032 max file descriptors.
+173923:M 07 Nov 2026 21:58:15.750 # Server can't set maximum open files to 10032 because of OS error: Operation not permitted.
+173923:M 07 Nov 2026 21:58:15.750 # Current maximum open files is 4096. maxclients has been reduced to 4064 to compensate for low ulimit. If you need higher maxclients increase 'ulimit -n'.
+173923:M 07 Nov 2026 21:58:15.781 * monotonic clock: X86 TSC @ 1497.83 ticks/us
+173923:M 07 Nov 2026 21:58:15.781 * Running mode=standalone, port=18080.
+173923:M 07 Nov 2026 21:58:15.782 * Static Module 'lua' successfully loaded
+173923:M 07 Nov 2026 21:58:15.782 * Server initialized
+173923:M 07 Nov 2026 21:58:15.782 * Ready to accept connections tcp
+173923:M 07 Nov 2026 21:58:16.000 * Replica 127.0.0.1:19080 asks for synchronization
+173923:M 07 Nov 2026 21:58:16.000 * Full resync requested by replica 127.0.0.1:19080
+173923:M 07 Nov 2026 21:58:16.000 * Replication backlog created, my new replication IDs are '6e90075bbccc1b9ac2153a3784a2fd4a8127a52b' and '0000000000000000000000000000000000000000'
+173923:M 07 Nov 2026 21:58:16.000 * Delay next BGSAVE for diskless SYNC
+173923:M 07 Nov 2026 21:58:21.802 * Starting BGSAVE for SYNC with target: replicas sockets using: normal sync
+173923:M 07 Nov 2026 21:58:21.802 * Background RDB transfer started by pid 174032 to pipe through parent process
+174032:C 07 Nov 2026 21:58:21.804 * Fork CoW for RDB: current 0 MB, peak 0 MB, average 0 MB
+173923:M 07 Nov 2026 21:58:21.804 * Diskless rdb transfer, done reading from pipe, 1 replicas still up.
+173923:M 07 Nov 2026 21:58:21.903 * Background RDB transfer terminated with success
+173923:M 07 Nov 2026 21:58:21.903 * Streamed RDB transfer with replica 127.0.0.1:19080 succeeded (socket). Waiting for REPLCONF ACK from replica to enable streaming
+173923:M 07 Nov 2026 21:58:21.903 * Synchronization with replica 127.0.0.1:19080 succeeded
+173923:M 07 Nov 2026 21:58:23.277 * Connection with replica 127.0.0.1:19080 lost.
+173923:M 07 Nov 2026 21:58:23.279 * User requested shutdown... (user request from 'id=10 addr=127.0.0.1:37038 laddr=127.0.0.1:18080 fd=9 name=*redacted* user=*redacted* lib-name= lib-ver=')
+173923:M 07 Nov 2026 21:58:23.279 * Module lua unloaded
+173923:M 07 Nov 2026 21:58:23.279 # Valkey is now ready to exit, bye bye...

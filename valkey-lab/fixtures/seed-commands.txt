@@ -1,0 +1,15 @@
+# The fixture dataset, as commands.
+# A fictional community noticeboard run by a fictional board-game club,
+# the Riverside Board Game Club. No real person, place, or organisation.
+# Load with:  valkey-cli -p 18080 < seed-commands.txt   (one reply per line)
+
+SET notice:current "Board games night is on Friday, hall B"
+SET club:name "Riverside Board Game Club"
+SET club:room "Hall B"
+INCRBY notice:views 12
+HSET member:ada name "Ada" games_owned 43 favourite "chess"
+LPUSH queue:notices "book friday hall" "order score pads"
+SADD friday:players Ada Ben Cleo
+ZADD leaderboard 140 Cleo 125 Ben 120 Ada 95 Dan
+XADD board:log * action post author Ada text "friday moved"
+SET notice:flash "Doors open 6.30pm tonight only" EX 10800

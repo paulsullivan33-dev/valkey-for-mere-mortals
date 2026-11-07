@@ -1,0 +1,24 @@
+AOF server up (appendonly yes, appendfsync everysec, save "").
+$ SET aof:notice "AOF wrote this" ; INCR aof:counter x3 ; HSET aof:member name "Cleo"
+counter is now: 3
+Files under data-aof/ after ~2 seconds:
+-rw-rw---- 1 root root 89 Nov  7 21:58 data-aof/appendonlydir/appendonly.aof.1.base.rdb
+-rw-rw---- 1 root root 221 Nov  7 21:58 data-aof/appendonlydir/appendonly.aof.1.incr.aof
+-rw-rw---- 1 root root 88 Nov  7 21:58 data-aof/appendonlydir/appendonly.aof.manifest
+$ INFO persistence (selected)
+loading:0
+async_loading:0
+rdb_last_bgsave_status:ok
+aof_enabled:1
+aof_current_size:221
+Stopping the server the hard way: kill -9 173855 at 21:58:15.304
+(a crash, not a shutdown — nothing gets a chance to save on exit)
+Restarted after the kill, at 21:58:15.517.
+$ GET aof:notice
+AOF wrote this
+$ GET aof:counter
+3
+$ HGETALL aof:member
+name
+Cleo
+$ SHUTDOWN (clean-up)

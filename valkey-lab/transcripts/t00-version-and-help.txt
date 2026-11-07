@@ -1,0 +1,61 @@
+$ valkey-server --version
+Valkey server v=9.1.3 sha=00000000:1 malloc=jemalloc-5.3.0 bits=64 build=34e9ebdb4fb06db3
+$ valkey-cli --version
+valkey-cli 9.1.3
+$ valkey-server --help (first 40 lines)
+Usage: ./valkey-server [/path/to/valkey.conf] [options] [-]
+       ./valkey-server - (read config from stdin)
+       ./valkey-server -v or --version
+       ./valkey-server -h or --help
+       ./valkey-server --test-memory <megabytes>
+       ./valkey-server --check-system
+
+Examples:
+       ./valkey-server (run the server with default conf)
+       echo 'maxmemory 128mb' | ./valkey-server -
+       ./valkey-server /etc/valkey/6379.conf
+       ./valkey-server --port 7777
+       ./valkey-server --port 7777 --replicaof 127.0.0.1 8888
+       ./valkey-server /etc/myvalkey.conf --loglevel verbose -
+       ./valkey-server /etc/myvalkey.conf --loglevel verbose
+
+Sentinel mode:
+       ./valkey-server /etc/sentinel.conf --sentinel
+$ valkey-cli --help (first 30 lines)
+valkey-cli 9.1.3
+
+Usage: valkey-cli [OPTIONS] [cmd [arg [arg ...]]]
+  -h <hostname>      Server hostname (default: 127.0.0.1).
+  -p <port>          Server port (default: 6379).
+  -t <timeout>       Server connection timeout in seconds (decimals allowed).
+                     Default timeout is 0, meaning no limit, depending on the OS.
+  -s <socket>        Server socket (overrides hostname and port).
+  -a <password>      Password to use when connecting to the server.
+                     You can also use the VALKEYCLI_AUTH environment
+                     variable to pass this password more safely
+                     (if both are used, this argument takes precedence).
+  --user <username>  Used to send ACL style 'AUTH username pass'. Needs -a.
+  --pass <password>  Alias of -a for consistency with the new --user option.
+  --askpass          Force user to input password with mask from STDIN.
+                     If this argument is used, '-a' and VALKEYCLI_AUTH
+                     environment variable will be ignored.
+  -u <uri>           Server URI on format valkey://user:password@host:port/dbnum
+                     User, password and dbnum are optional. For authentication
+                     without a username, use username 'default'. For TLS, use
+                     the scheme 'valkeys'.
+  -r <repeat>        Execute specified command N times.
+  -i <interval>      When -r is used, waits <interval> seconds per command.
+                     It is possible to specify sub-second times like -i 0.1.
+                     This interval is also used in --scan and --stat per cycle.
+                     and in --bigkeys, --memkeys, and --hotkeys per 100 cycles.
+  -n <db>            Database number.
+  -2                 Start session in RESP2 protocol mode.
+  -3                 Start session in RESP3 protocol mode.
+  -x                 Read last argument from STDIN (see example below).
+Source used: valkey-9.1.3.tar.gz, the GitHub tag archive for tag 9.1.3
+(github.com/valkey-io/valkey/archive/refs/tags/9.1.3.tar.gz),
+sha256 184e34ed2d9b51879b682b5b15205e2b9d677c60280e3cb453be8f520d04e293,
+built with: make -j4 BUILD_TLS=no   (gcc 13.3.0, GNU Make 4.3, x86_64)
+Note: https://download.valkey.io/releases/valkey-9.1.3.tar.gz returned
+HTTP 403 to a plain curl request from this machine, so the GitHub tag
+archive of the same release was used instead.

@@ -1,0 +1,40 @@
+173687:M 07 Nov 2026 21:58:03.444 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+173687:M 07 Nov 2026 21:58:03.444 * oO0OoO0OoO0Oo Valkey is starting oO0OoO0OoO0Oo
+173687:M 07 Nov 2026 21:58:03.444 * Valkey version=9.1.3, bits=64, commit=00000000, modified=1, pid=173687, just started
+173687:M 07 Nov 2026 21:58:03.444 * Configuration loaded
+173687:M 07 Nov 2026 21:58:03.444 # You requested maxclients of 10000 requiring at least 10032 max file descriptors.
+173687:M 07 Nov 2026 21:58:03.444 # Server can't set maximum open files to 10032 because of OS error: Operation not permitted.
+173687:M 07 Nov 2026 21:58:03.444 # Current maximum open files is 4096. maxclients has been reduced to 4064 to compensate for low ulimit. If you need higher maxclients increase 'ulimit -n'.
+173687:M 07 Nov 2026 21:58:03.475 * monotonic clock: X86 TSC @ 1497.83 ticks/us
+173687:M 07 Nov 2026 21:58:03.476 * Running mode=standalone, port=18080.
+173687:M 07 Nov 2026 21:58:03.478 * Static Module 'lua' successfully loaded
+173687:M 07 Nov 2026 21:58:03.478 * Server initialized
+173687:M 07 Nov 2026 21:58:03.478 * Ready to accept connections tcp
+173687:M 07 Nov 2026 21:58:10.821 * Background saving started by pid 173811
+173811:C 07 Nov 2026 21:58:10.853 * DB saved on disk
+173811:C 07 Nov 2026 21:58:10.854 * Fork CoW for RDB: current 0 MB, peak 0 MB, average 0 MB
+173687:M 07 Nov 2026 21:58:10.883 * Background saving terminated with success
+173687:M 07 Nov 2026 21:58:11.833 * User requested shutdown... (user request from 'id=75 addr=127.0.0.1:48534 laddr=127.0.0.1:18080 fd=9 name=*redacted* user=*redacted* lib-name= lib-ver=')
+173687:M 07 Nov 2026 21:58:11.833 * Module lua unloaded
+173687:M 07 Nov 2026 21:58:11.833 # Valkey is now ready to exit, bye bye...
+173824:M 07 Nov 2026 21:58:12.842 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+173824:M 07 Nov 2026 21:58:12.842 * oO0OoO0OoO0Oo Valkey is starting oO0OoO0OoO0Oo
+173824:M 07 Nov 2026 21:58:12.842 * Valkey version=9.1.3, bits=64, commit=00000000, modified=1, pid=173824, just started
+173824:M 07 Nov 2026 21:58:12.842 * Configuration loaded
+173824:M 07 Nov 2026 21:58:12.842 # You requested maxclients of 10000 requiring at least 10032 max file descriptors.
+173824:M 07 Nov 2026 21:58:12.842 # Server can't set maximum open files to 10032 because of OS error: Operation not permitted.
+173824:M 07 Nov 2026 21:58:12.842 # Current maximum open files is 4096. maxclients has been reduced to 4064 to compensate for low ulimit. If you need higher maxclients increase 'ulimit -n'.
+173824:M 07 Nov 2026 21:58:12.873 * monotonic clock: X86 TSC @ 1497.83 ticks/us
+173824:M 07 Nov 2026 21:58:12.873 * Running mode=standalone, port=18080.
+173824:M 07 Nov 2026 21:58:12.874 * Static Module 'lua' successfully loaded
+173824:M 07 Nov 2026 21:58:12.874 * Server initialized
+173824:M 07 Nov 2026 21:58:12.874 * Cleaning slot migration log in anticipation of a load operation.
+173824:M 07 Nov 2026 21:58:12.874 * Loading RDB produced by Valkey version 9.1.3
+173824:M 07 Nov 2026 21:58:12.874 * RDB age 2 seconds
+173824:M 07 Nov 2026 21:58:12.874 * RDB memory usage when created 1.63 Mb
+173824:M 07 Nov 2026 21:58:12.874 * Done loading RDB, keys loaded: 10, keys expired: 0, all fields expired hashes: 0.
+173824:M 07 Nov 2026 21:58:12.874 * DB loaded from disk: 0.000 seconds
+173824:M 07 Nov 2026 21:58:12.874 * Ready to accept connections tcp
+173824:M 07 Nov 2026 21:58:13.064 * User requested shutdown... (user request from 'id=11 addr=127.0.0.1:48634 laddr=127.0.0.1:18080 fd=9 name=*redacted* user=*redacted* lib-name= lib-ver=')
+173824:M 07 Nov 2026 21:58:13.065 * Module lua unloaded
+173824:M 07 Nov 2026 21:58:13.065 # Valkey is now ready to exit, bye bye...

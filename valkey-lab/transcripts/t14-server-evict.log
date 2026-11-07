@@ -1,0 +1,15 @@
+174058:M 07 Nov 2026 21:58:23.311 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+174058:M 07 Nov 2026 21:58:23.311 * oO0OoO0OoO0Oo Valkey is starting oO0OoO0OoO0Oo
+174058:M 07 Nov 2026 21:58:23.311 * Valkey version=9.1.3, bits=64, commit=00000000, modified=1, pid=174058, just started
+174058:M 07 Nov 2026 21:58:23.311 * Configuration loaded
+174058:M 07 Nov 2026 21:58:23.311 # You requested maxclients of 10000 requiring at least 10032 max file descriptors.
+174058:M 07 Nov 2026 21:58:23.311 # Server can't set maximum open files to 10032 because of OS error: Operation not permitted.
+174058:M 07 Nov 2026 21:58:23.311 # Current maximum open files is 4096. maxclients has been reduced to 4064 to compensate for low ulimit. If you need higher maxclients increase 'ulimit -n'.
+174058:M 07 Nov 2026 21:58:23.342 * monotonic clock: X86 TSC @ 1497.83 ticks/us
+174058:M 07 Nov 2026 21:58:23.342 * Running mode=standalone, port=19081.
+174058:M 07 Nov 2026 21:58:23.343 * Static Module 'lua' successfully loaded
+174058:M 07 Nov 2026 21:58:23.343 * Server initialized
+174058:M 07 Nov 2026 21:58:23.343 * Ready to accept connections tcp
+174058:M 07 Nov 2026 21:58:24.662 * User requested shutdown... (user request from 'id=9 addr=127.0.0.1:59596 laddr=127.0.0.1:19081 fd=9 name=*redacted* user=*redacted* lib-name= lib-ver=')
+174058:M 07 Nov 2026 21:58:24.663 * Module lua unloaded
+174058:M 07 Nov 2026 21:58:24.663 # Valkey is now ready to exit, bye bye...

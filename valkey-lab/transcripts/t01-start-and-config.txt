@@ -1,0 +1,19 @@
+Server started from valkey-primary.conf (bind 127.0.0.1, port 18080,
+dir ./data-rdb, appendonly no, save 3600 1). Background PID 173687.
+$ PING
+PONG
+$ INFO server (selected lines)
+redis_version:7.2.4
+valkey_version:9.1.3
+process_id:173687
+tcp_port:18080
+uptime_in_seconds:0
+$ CONFIG GET port bind appendonly dir
+appendonly
+no
+bind
+127.0.0.1
+dir
+/home/hatch/workspace/valkey-for-mere-mortals/valkey-lab/data-rdb
+port
+18080

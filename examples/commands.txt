@@ -1,0 +1,29 @@
+Valkey for Mere Mortals — distilled commands
+All against the lab server: valkey-cli -p 18080 (add -p 19080 for the replica).
+
+Prove the install        valkey-server --version ; valkey-cli --version
+Start the lab server     valkey-server valkey-lab/valkey-primary.conf
+First contact            PING -> PONG ; INFO server ; CONFIG GET port bind
+Strings                  SET notice:current "..." ; GET notice:current
+Counters                 INCR notice:views ; INCRBY notice:views 10
+Batch                    MSET club:name "..." club:room "Hall B" ; MGET club:name club:room
+Hashes                   HSET member:ada name "Ada" games_owned 42 favourite "chess"
+                         HGETALL member:ada ; HINCRBY member:ada games_owned 1
+Lists (queue)            LPUSH queue:notices "job one" "job two" ; RPOP queue:notices ; LLEN queue:notices
+Sets                     SADD friday:players Ada Ben Cleo ; SINTER friday:players friday:bringing
+Leaderboard              ZADD leaderboard 120 Ada 140 Cleo ; ZINCRBY leaderboard 30 Ben
+                         ZREVRANGE leaderboard 0 -1 WITHSCORES ; ZREVRANK leaderboard Cleo
+Streams                  XADD board:log * action post author Ada text "friday moved"
+                         XRANGE board:log - + ; XLEN board:log
+Expiry (measured)        SET notice:flash "..." EX 3 ; TTL notice:flash ; sleep 4 ; GET notice:flash
+                         EXPIRE key 100 ; PERSIST key ; TTL key  (-1 none, -2 missing)
+Snapshot                 BGSAVE ; LASTSAVE ; ls -lh data-rdb/dump.rdb
+Stop without saving      SHUTDOWN NOSAVE   (then restart and GET to prove the snapshot)
+Transactions             MULTI ; INCR notice:views ; INCR notice:views ; EXEC
+Health                   INFO ; INFO memory ; INFO stats ; INFO keyspace ; DBSIZE
+Per-key size             MEMORY USAGE leaderboard
+Replication              replica: replicaof 127.0.0.1 18080 ; wait for master_link_status:up
+                         write on the primary, GET on the replica; writes to the replica: READONLY
+Eviction (third server)  port 19081, maxmemory 2mb, maxmemory-policy allkeys-lru
+                         INFO stats -> evicted_keys ; INFO memory -> used vs max
+Stop cleanly             SHUTDOWN  (saves if configured) ; SHUTDOWN NOSAVE (does not)

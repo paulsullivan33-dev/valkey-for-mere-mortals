@@ -1,0 +1,51 @@
+Valkey lab notes
+
+Machine: Ubuntu 24.04 sandbox, x86_64, gcc 13.3.0, GNU Make 4.3.
+Tool: Valkey 9.1.3, built from the official source release.
+  Obtained as the GitHub tag archive valkey-9.1.3.tar.gz
+  (github.com/valkey-io/valkey/archive/refs/tags/9.1.3.tar.gz),
+  SHA-256 184e34ed2d9b51879b682b5b15205e2b9d677c60280e3cb453be8f520d04e293.
+  The canonical download.valkey.io tarball URL returned HTTP 403 to a
+  plain curl from this machine; the tag archive of the same release
+  was used instead and that is recorded in transcript t00.
+  Build: make -j4 BUILD_TLS=no (a few minutes on 4 cores).
+Ports (loopback only): primary 18080, replica 19080 (assigned +1000),
+  eviction instance 19081 (+1001).
+Driver: valkey-lab/run-lab.sh runs every phase and writes transcripts/.
+  It takes VALKEY_BIN_DIR pointing at the folder with the built
+  valkey-server and valkey-cli. Server working folders (data-rdb,
+  data-aof, data-repl-primary, data-repl-replica, data-evict) are
+  created by the driver and were emptied after the run; the configs
+  in valkey-lab/*.conf name them.
+
+Measured highlights:
+- Expiry: key set with EX 3 read back at once, gone after a 4 s sleep,
+  with wall-clock timestamps in t07.
+- Blocking: a Lua loop of 400M iterations ran 2.98 s; a PING issued
+  0.5 s into it returned after 2.48 s; after it finished, 0.003 s.
+  (First attempt used a 120M loop: 0.88 s run, 0.37 s PING delay —
+  the effect was real but small, so the loop was enlarged.)
+- RDB: 10 keys snapshotted to a 631-byte dump.rdb; SHUTDOWN NOSAVE,
+  restart, all 10 keys and every value read back (t08).
+- AOF: appendfsync everysec; after kill -9 and restart, all writes
+  present (t09). Process kill only — machine-crash fsync windows are
+  documented-only.
+- No persistence: kill -9 and restart returned DBSIZE 0 (t13).
+- Replication: first run read too early and got empty keys with
+  master_link_status:down — the primary delays diskless sync by
+  repl-diskless-sync-delay (5 s default). The final run polled and
+  saw the link up at attempt 13 (~6 s), then a primary write read
+  back on the replica, lag 0, and a replica write refused READONLY.
+  The failed first attempt is described in chapter 12 and in
+  troubleshooting, not hidden.
+- Eviction: an early run failed entirely because a script variable
+  (E, the port flags) was overwritten by a timing variable of the
+  same name in the blocking test; the client then talked to port
+  6379 and every command was refused. Fixed by renaming, the lab
+  re-run end to end, and the incident kept in chapter 17 as the
+  worked connection-refused example. Final numbers: 3,000 keys of
+  ~1 KB pushed at a 2 MB allkeys-lru server; DBSIZE 1256,
+  evicted_keys 1767, used memory exactly 2.00M.
+- One curiosity kept in the transcripts: stream ids begin with a
+  millisecond timestamp that renders as 1794088652171 on this
+  machine's clock. The shape (time-sequence) is what matters.

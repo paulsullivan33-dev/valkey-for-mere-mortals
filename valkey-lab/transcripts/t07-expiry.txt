@@ -1,0 +1,22 @@
+== Expiry, measured with a clock ==
+start: 21:58:03.756
+$ SET notice:flash "Doors open 6.30pm tonight only" EX 3
+OK
+$ TTL notice:flash (immediately)
+3
+$ GET notice:flash
+Doors open 6.30pm tonight only
+sleeping 4 seconds... (21:58:03.765)
+after: 21:58:07.770
+$ GET notice:flash (after the TTL)
+
+(empty reply above means the key is gone)
+$ EXISTS notice:flash
+0
+$ TTL notice:current (a key with no expiry)
+-1
+$ PERSIST / EXPIRE on a normal key:
+1
+100
+1
+-1

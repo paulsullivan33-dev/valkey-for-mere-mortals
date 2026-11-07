@@ -1,0 +1,18 @@
+Usage: ./valkey-server [/path/to/valkey.conf] [options] [-]
+       ./valkey-server - (read config from stdin)
+       ./valkey-server -v or --version
+       ./valkey-server -h or --help
+       ./valkey-server --test-memory <megabytes>
+       ./valkey-server --check-system
+
+Examples:
+       ./valkey-server (run the server with default conf)
+       echo 'maxmemory 128mb' | ./valkey-server -
+       ./valkey-server /etc/valkey/6379.conf
+       ./valkey-server --port 7777
+       ./valkey-server --port 7777 --replicaof 127.0.0.1 8888
+       ./valkey-server /etc/myvalkey.conf --loglevel verbose -
+       ./valkey-server /etc/myvalkey.conf --loglevel verbose
+
+Sentinel mode:
+       ./valkey-server /etc/sentinel.conf --sentinel

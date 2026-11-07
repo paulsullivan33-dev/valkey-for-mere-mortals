@@ -1,0 +1,34 @@
+173938:S 07 Nov 2026 21:58:15.967 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+173938:S 07 Nov 2026 21:58:15.967 * oO0OoO0OoO0Oo Valkey is starting oO0OoO0OoO0Oo
+173938:S 07 Nov 2026 21:58:15.967 * Valkey version=9.1.3, bits=64, commit=00000000, modified=1, pid=173938, just started
+173938:S 07 Nov 2026 21:58:15.967 * Configuration loaded
+173938:S 07 Nov 2026 21:58:15.967 # You requested maxclients of 10000 requiring at least 10032 max file descriptors.
+173938:S 07 Nov 2026 21:58:15.967 # Server can't set maximum open files to 10032 because of OS error: Operation not permitted.
+173938:S 07 Nov 2026 21:58:15.967 # Current maximum open files is 4096. maxclients has been reduced to 4064 to compensate for low ulimit. If you need higher maxclients increase 'ulimit -n'.
+173938:S 07 Nov 2026 21:58:15.998 * monotonic clock: X86 TSC @ 1497.83 ticks/us
+173938:S 07 Nov 2026 21:58:15.998 * Running mode=standalone, port=19080.
+173938:S 07 Nov 2026 21:58:15.999 * Static Module 'lua' successfully loaded
+173938:S 07 Nov 2026 21:58:15.999 * Server initialized
+173938:S 07 Nov 2026 21:58:15.999 * Ready to accept connections tcp
+173938:S 07 Nov 2026 21:58:15.999 * Connecting to PRIMARY 127.0.0.1:18080
+173938:S 07 Nov 2026 21:58:15.999 * PRIMARY <-> REPLICA sync started
+173938:S 07 Nov 2026 21:58:15.999 * Non blocking connect for SYNC fired the event.
+173938:S 07 Nov 2026 21:58:15.999 * Primary replied to PING, replication can continue...
+173938:S 07 Nov 2026 21:58:16.000 * Partial resynchronization not possible (no cached primary)
+173938:S 07 Nov 2026 21:58:21.802 * Full resync from primary: 6e90075bbccc1b9ac2153a3784a2fd4a8127a52b:0
+173938:S 07 Nov 2026 21:58:21.803 * Replica main thread creating Bio thread to save RDB to disk
+173938:S 07 Nov 2026 21:58:21.803 * Replica bio thread: PRIMARY <-> REPLICA sync: receiving streamed RDB from primary with EOF to disk
+173938:S 07 Nov 2026 21:58:21.804 * Replica bio thread: Done downloading RDB
+173938:S 07 Nov 2026 21:58:22.020 * Replica main thread detected RDB download completion in Bio thread
+173938:S 07 Nov 2026 21:58:22.020 * Loading the RDB and finalizing primary-replica sync...
+173938:S 07 Nov 2026 21:58:22.049 * PRIMARY <-> REPLICA sync: Loading DB in memory
+173938:S 07 Nov 2026 21:58:22.050 * Cleaning slot migration log in anticipation of a load operation.
+173938:S 07 Nov 2026 21:58:22.050 * RDB signature and version check passed. Flushing old data
+173938:S 07 Nov 2026 21:58:22.050 * Loading RDB produced by Valkey version 9.1.3
+173938:S 07 Nov 2026 21:58:22.050 * RDB age 1 seconds
+173938:S 07 Nov 2026 21:58:22.050 * RDB memory usage when created 0.74 Mb
+173938:S 07 Nov 2026 21:58:22.050 * Done loading RDB, keys loaded: 0, keys expired: 0, all fields expired hashes: 0.
+173938:S 07 Nov 2026 21:58:22.050 * PRIMARY <-> REPLICA sync: Finished with success
+173938:S 07 Nov 2026 21:58:23.275 * User requested shutdown... (user request from 'id=23 addr=127.0.0.1:45604 laddr=127.0.0.1:19080 fd=10 name=*redacted* user=*redacted* lib-name= lib-ver=')
+173938:S 07 Nov 2026 21:58:23.276 * Module lua unloaded
+173938:S 07 Nov 2026 21:58:23.276 # Valkey is now ready to exit, bye bye...

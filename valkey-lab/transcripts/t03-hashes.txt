@@ -1,0 +1,16 @@
+== Hashes: one club member as fields of one key ==
+$ HSET member:ada name "Ada" games_owned 42 favourite "chess"
+3
+$ HGETALL member:ada
+name
+Ada
+games_owned
+42
+favourite
+chess
+$ HINCRBY member:ada games_owned 1
+43
+$ HGET member:ada favourite
+chess
+$ TYPE member:ada
+hash

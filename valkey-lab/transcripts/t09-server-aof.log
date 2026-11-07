@@ -1,0 +1,41 @@
+173855:M 07 Nov 2026 21:58:13.072 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+173855:M 07 Nov 2026 21:58:13.072 * oO0OoO0OoO0Oo Valkey is starting oO0OoO0OoO0Oo
+173855:M 07 Nov 2026 21:58:13.072 * Valkey version=9.1.3, bits=64, commit=00000000, modified=1, pid=173855, just started
+173855:M 07 Nov 2026 21:58:13.072 * Configuration loaded
+173855:M 07 Nov 2026 21:58:13.072 # You requested maxclients of 10000 requiring at least 10032 max file descriptors.
+173855:M 07 Nov 2026 21:58:13.072 # Server can't set maximum open files to 10032 because of OS error: Operation not permitted.
+173855:M 07 Nov 2026 21:58:13.072 # Current maximum open files is 4096. maxclients has been reduced to 4064 to compensate for low ulimit. If you need higher maxclients increase 'ulimit -n'.
+173855:M 07 Nov 2026 21:58:13.103 * monotonic clock: X86 TSC @ 1497.83 ticks/us
+173855:M 07 Nov 2026 21:58:13.103 * Running mode=standalone, port=18080.
+173855:M 07 Nov 2026 21:58:13.104 * Static Module 'lua' successfully loaded
+173855:M 07 Nov 2026 21:58:13.104 * Server initialized
+173855:M 07 Nov 2026 21:58:13.120 * Creating AOF base file appendonly.aof.1.base.rdb on server start
+173855:M 07 Nov 2026 21:58:13.146 * Creating AOF incr file appendonly.aof.1.incr.aof on server start
+173855:M 07 Nov 2026 21:58:13.146 * Ready to accept connections tcp
+173885:M 07 Nov 2026 21:58:15.310 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+173885:M 07 Nov 2026 21:58:15.310 * oO0OoO0OoO0Oo Valkey is starting oO0OoO0OoO0Oo
+173885:M 07 Nov 2026 21:58:15.310 * Valkey version=9.1.3, bits=64, commit=00000000, modified=1, pid=173885, just started
+173885:M 07 Nov 2026 21:58:15.310 * Configuration loaded
+173885:M 07 Nov 2026 21:58:15.311 # You requested maxclients of 10000 requiring at least 10032 max file descriptors.
+173885:M 07 Nov 2026 21:58:15.311 # Server can't set maximum open files to 10032 because of OS error: Operation not permitted.
+173885:M 07 Nov 2026 21:58:15.311 # Current maximum open files is 4096. maxclients has been reduced to 4064 to compensate for low ulimit. If you need higher maxclients increase 'ulimit -n'.
+173885:M 07 Nov 2026 21:58:15.341 * monotonic clock: X86 TSC @ 1497.83 ticks/us
+173885:M 07 Nov 2026 21:58:15.341 * Running mode=standalone, port=18080.
+173885:M 07 Nov 2026 21:58:15.342 * Static Module 'lua' successfully loaded
+173885:M 07 Nov 2026 21:58:15.342 * Server initialized
+173885:M 07 Nov 2026 21:58:15.342 * Cleaning slot migration log in anticipation of a load operation.
+173885:M 07 Nov 2026 21:58:15.342 * Reading RDB base file on AOF loading...
+173885:M 07 Nov 2026 21:58:15.342 * Loading RDB produced by Valkey version 9.1.3
+173885:M 07 Nov 2026 21:58:15.343 * RDB age 2 seconds
+173885:M 07 Nov 2026 21:58:15.343 * RDB memory usage when created 0.62 Mb
+173885:M 07 Nov 2026 21:58:15.343 * RDB is base AOF
+173885:M 07 Nov 2026 21:58:15.343 * Done loading RDB, keys loaded: 0, keys expired: 0, all fields expired hashes: 0.
+173885:M 07 Nov 2026 21:58:15.343 * DB loaded from base file appendonly.aof.1.base.rdb: 0.000 seconds
+173885:M 07 Nov 2026 21:58:15.343 * DB loaded from incr file appendonly.aof.1.incr.aof: 0.000 seconds
+173885:M 07 Nov 2026 21:58:15.343 * DB loaded from append only file: 0.000 seconds
+173885:M 07 Nov 2026 21:58:15.343 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+173885:M 07 Nov 2026 21:58:15.343 * Ready to accept connections tcp
+173885:M 07 Nov 2026 21:58:15.527 * User requested shutdown... (user request from 'id=9 addr=127.0.0.1:48766 laddr=127.0.0.1:18080 fd=10 name=*redacted* user=*redacted* lib-name= lib-ver=')
+173885:M 07 Nov 2026 21:58:15.527 * Calling fsync() on the AOF file.
+173885:M 07 Nov 2026 21:58:15.527 * Module lua unloaded
+173885:M 07 Nov 2026 21:58:15.527 # Valkey is now ready to exit, bye bye...

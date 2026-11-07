@@ -1,0 +1,8 @@
+No-persistence server (save "", appendonly no).
+before kill: only in memory
+kill -9 173905 at 21:58:15.744
+after restart: GET volatile:key ->
+
+(empty = gone: what is only in memory is only in memory)
+$ DBSIZE
+0

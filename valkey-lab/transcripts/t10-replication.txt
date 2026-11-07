@@ -1,0 +1,38 @@
+Waiting for the replication link (the primary delays a diskless sync
+by repl-diskless-sync-delay, 5 seconds by default):
+  attempt 1: master_link_status=down
+  attempt 2: master_link_status=down
+  attempt 3: master_link_status=down
+  attempt 4: master_link_status=down
+  attempt 5: master_link_status=down
+  attempt 6: master_link_status=down
+  attempt 7: master_link_status=down
+  attempt 8: master_link_status=down
+  attempt 9: master_link_status=down
+  attempt 10: master_link_status=down
+  attempt 11: master_link_status=down
+  attempt 12: master_link_status=down
+  attempt 13: master_link_status=up
+Primary on 18080, replica on 19080 (replicaof 127.0.0.1 18080).
+$ On the PRIMARY: SET club:next_meeting "Friday 7pm, hall B" ; INCR notice:views
+OK
+1
+$ On the REPLICA: GET club:next_meeting
+Friday 7pm, hall B
+$ On the REPLICA: GET notice:views
+1
+$ On the REPLICA: INFO replication (selected)
+role:slave
+master_host:127.0.0.1
+master_port:18080
+master_link_status:up
+master_last_io_seconds_ago:1
+$ On the PRIMARY: INFO replication (selected)
+role:master
+connected_slaves:1
+slave0:ip=127.0.0.1,port=19080,state=online,offset=132,lag=0,type=replica
+$ Writing to the REPLICA must fail — it is read-only:
+READONLY You can't write against a read only replica.
+
+$ REPLICA GET again (unchanged):
+Friday 7pm, hall B

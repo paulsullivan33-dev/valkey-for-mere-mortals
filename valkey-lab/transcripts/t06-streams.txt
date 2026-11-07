@@ -1,0 +1,30 @@
+== Streams: an append-only log of noticeboard posts ==
+$ XADD board:log * action post author Ada text "friday moved"
+returned id: 1794088683745-0
+returned id: 1794088683747-0
+$ XLEN board:log
+2
+$ XRANGE board:log - +
+1794088683745-0
+action
+post
+author
+Ada
+text
+friday moved
+1794088683747-0
+action
+post
+author
+Ben
+text
+hall B confirmed
+$ XREAD COUNT 1 STREAMS board:log 0
+board:log
+1794088683745-0
+action
+post
+author
+Ada
+text
+friday moved
